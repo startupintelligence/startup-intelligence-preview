@@ -53,3 +53,37 @@ main > section, .trust-strip { transform-style: preserve-3d; }
 @media (prefers-reduced-motion: reduce) {
   .si-3d-tilt, .si-3d-tilt.si-tilt-active, .si-reveal-ready main > section[data-si-reveal], .si-reveal-ready .trust-strip[data-si-reveal] { transform: none !important; transition: none !important; will-change: auto; opacity: 1 !important; }
 }
+
+
+/* Interactive 3D scene controls inspired by spatial / scroll-led web experiences. */
+.three-d-stage {
+  perspective: 1100px;
+  transform-style: preserve-3d;
+  --si-scene-x: -16deg;
+  --si-scene-y: 24deg;
+  --si-scroll-depth: 0px;
+  cursor: grab;
+  transition: box-shadow 300ms ease;
+}
+.three-d-stage.is-grabbing { cursor: grabbing; }
+.three-d-cube {
+  transform-style: preserve-3d;
+  transform: translateZ(var(--si-scroll-depth)) rotateX(var(--si-scene-x)) rotateY(var(--si-scene-y));
+  transition: transform 180ms ease-out;
+  will-change: transform;
+}
+.three-d-stage:focus-visible { outline: 2px solid var(--cyan, #70e4f4); outline-offset: 6px; }
+.three-d-stage .three-d-orbit,
+.three-d-stage .three-d-panel,
+.three-d-stage .three-d-spark { transform-style: preserve-3d; }
+.three-d-stage .three-d-panel-one { transform: translateZ(38px) rotateY(-8deg); }
+.three-d-stage .three-d-panel-two { transform: translateZ(72px) rotateY(9deg); }
+.three-d-stage .three-d-spark-one { transform: translateZ(95px); }
+.three-d-stage .three-d-spark-two { transform: translateZ(55px); }
+@media (hover:hover) and (pointer:fine) {
+  .three-d-stage:hover .three-d-panel { box-shadow: 0 28px 70px rgba(0,0,0,.3); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .three-d-cube { transition: none !important; }
+  .three-d-stage { cursor: auto; }
+}
