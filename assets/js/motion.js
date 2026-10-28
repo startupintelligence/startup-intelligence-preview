@@ -53,4 +53,60 @@
       if (control) control.classList.remove('si-pressed');
     }, true);
   });
+
+  /* Interactive 3D showcase: pointer drag rotates the scene; page scroll adds a little depth. */
+  const stage = document.querySelector('.three-d-stage');
+  if (stage && !reduced) {
+    const cube = stage.querySelector('.three-d-cube');
+    let dragging = false, lastX = 0, lastY = 0, rotX = -16, rotY = 24;
+    const paint = () => {
+      stage.style.setProperty('--si-scene-x', rotX + 'deg');
+      stage.style.setProperty('--si-scene-y', rotY + 'deg');
+    };
+    paint();
+    stage.style.touchAction = 'pan-y';
+    stage.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'touch') return;
+      dragging = true; lastX = event.clientX; lastY = event.clientY;
+      stage.classList.add('is-grabbing');
+      if (stage.setPointerCapture) stage.setPointerCapture(event.pointerId);
+    });
+    stage.addEventListener('pointermove', (event) => {
+      if (!dragging) return;
+      rotY += (event.clientX - lastX) * .55;
+      rotX = Math.max(-55, Math.min(55, rotX - (event.clientY - lastY) * .35));
+      lastX = event.clientX; lastY = event.clientY; paint();
+    });
+    const stopDrag = () => { dragging = false; stage.classList.remove('is-grabbing'); };
+    stage.addEventListener('pointerup', stopDrag);
+    stage.addEventListener('pointercancel', stopDrag);
+    stage.addEventListener('pointerleave', stopDrag);
+    stage.setAttribute('tabindex', '0');
+    stage.setAttribute('aria-label', 'Interactive 3D composition. Drag to rotate on desktop, or use arrow keys.');
+    stage.addEventListener('keydown', (event) => {
+      const step = event.shiftKey ? 12 : 5;
+      if (event.key === 'ArrowLeft') rotY -= step;
+      else if (event.key === 'ArrowRight') rotY += step;
+      else if (event.key === 'ArrowUp') rotX = Math.max(-55, rotX - step);
+      else if (event.key === 'ArrowDown') rotX = Math.min(55, rotX + step);
+      else return;
+      event.preventDefault(); paint();
+    });
+    let ticking = false;
+    const scrollScene = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const rect = stage.getBoundingClientRect();
+        const range = Math.max(window.innerHeight + rect.height, 1);
+        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / range));
+        stage.style.setProperty('--si-scroll-depth', (progress * 24 - 12).toFixed(2) + 'px');
+        ticking = false;
+      });
+    };
+    window.addEventListener('scroll', scrollScene, {passive:true});
+    window.addEventListener('resize', scrollScene, {passive:true});
+    scrollScene();
+  }
+
 })();
