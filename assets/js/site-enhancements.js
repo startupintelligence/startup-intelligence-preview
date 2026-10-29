@@ -55,6 +55,10 @@
     if (!img.hasAttribute('decoding')) img.decoding = 'async';
   });
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
-    window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+    window.addEventListener('load', () => {
+      const script = [...document.scripts].find(item => item.src.includes('site-enhancements.js'));
+      const workerUrl = script ? new URL('../../service-worker.js', script.src) : new URL('./service-worker.js', location.href);
+      navigator.serviceWorker.register(workerUrl.href).catch(() => {});
+    });
   }
 })();
