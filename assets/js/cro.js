@@ -15,11 +15,26 @@
 
   const budgetRange = document.querySelector('#budget-range');
   const budgetValue = document.querySelector('#budget-value');
-  const budgetOptions = ['Under ₹50,000', '₹50,000–₹1 lakh', '₹1–₹2.5 lakh', '₹2.5 lakh+'];
+  const budgetOptions = ['₹5,000–₹10,000', '₹10,000–₹25,000', '₹25,000–₹50,000', '₹50,000+'];
   if (budgetRange && budgetValue) {
     const updateBudget = () => { budgetValue.textContent = budgetOptions[Number(budgetRange.value)]; };
     budgetRange.addEventListener('input', updateBudget);
     updateBudget();
+  }
+
+  const budgetSelect = document.querySelector('#budget-select');
+  const customBudgetWrap = document.querySelector('#custom-budget-wrap');
+  const customBudgetInput = document.querySelector('#custom-budget');
+  function syncCustomBudget() {
+    if (!budgetSelect || !customBudgetWrap || !customBudgetInput) return;
+    const isCustom = budgetSelect.value === 'custom';
+    customBudgetWrap.hidden = !isCustom;
+    customBudgetInput.required = isCustom;
+    if (!isCustom) customBudgetInput.setCustomValidity('');
+  }
+  if (budgetSelect) {
+    budgetSelect.addEventListener('change', syncCustomBudget);
+    syncCustomBudget();
   }
 
   const form = document.querySelector('#discovery-form');
@@ -59,6 +74,14 @@
   next.addEventListener('click', () => {
     if (current === 1 && !selectedGoal()) { showError('Choose the goal that matters most, or select “I’m not sure yet”.'); return; }
     if (current === 2) {
+      if (budgetSelect && budgetSelect.value === 'custom') {
+        const amount = Number(customBudgetInput?.value);
+        if (!customBudgetInput?.value || !Number.isFinite(amount) || amount < 5000) {
+          showError('Enter a custom budget of at least ₹5,000.');
+          customBudgetInput?.focus();
+          return;
+        }
+      }
       const website = form.querySelector('#website').value.trim();
       if (website) {
         try {
@@ -80,7 +103,7 @@
     const data = {
       goal: selectedGoal()?.value || 'Not selected',
       website: form.querySelector('#website').value.trim() || 'Not provided',
-      budget: form.querySelector('#budget-select').value,
+      budget: budgetSelect?.value === 'custom' ? `₹${Number(customBudgetInput.value).toLocaleString('en-IN')} (custom)` : (budgetSelect?.value || 'Not selected'),
       name: name.value.trim(),
       email: email.value.trim()
     };
