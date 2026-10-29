@@ -14,9 +14,13 @@
   <title>Web Development & SEO | Startup Intelligence</title>
   <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/css/cro.css">
-  <link rel="stylesheet" href="./assets/css/animated-background.css">\n  <link rel="stylesheet" href="./assets/css/section-motion.css">
+  <link rel="stylesheet" href="./assets/css/animated-background.css">
+  <link rel="stylesheet" href="./assets/css/section-motion.css">
+  <link rel="stylesheet" href="./assets/css/privacy-banner.css">
+  <script defer src="./assets/js/site-enhancements.js"></script>
   <script defer src="./assets/js/cro.js"></script>
-  <script defer src="./assets/js/animated-background.js"></script>\n  <script defer src="./assets/js/section-motion.js"></script>
+  <script defer src="./assets/js/animated-background.js"></script>
+  <script defer src="./assets/js/section-motion.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -75,5 +79,12 @@
     <section class="closing"><div class="wrap closing-inner"><p class="eyebrow">A CLEARER WAY FORWARD</p><h2>Your goals first.<br><em>The right plan next.</em></h2><p>Let’s talk about what you need, what matters most and a practical next step.</p><a class="button button-primary" href="#discovery">Book a Discovery Call <span aria-hidden="true">↗</span></a></div></section>
   </main>
   <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#home">STARTUP <span>INTELLIGENCE</span></a><p>Thoughtful digital work. Clear scope. Practical execution.</p><nav class="footer-links" aria-label="Legal links"><a href="./privacy/">Privacy policy</a><a href="./terms/">Terms</a><a href="./contact/">Contact</a></nav><small>Independent digital project. Project scope and commercial terms are confirmed in a written proposal.</small></div></footer>
+  <aside class="privacy-banner" id="privacy-banner" role="dialog" aria-labelledby="privacy-title" aria-describedby="privacy-description" hidden>
+    <div class="privacy-banner-copy"><p class="privacy-eyebrow">YOUR PRIVACY</p><h2 id="privacy-title">Your choices matter.</h2><p id="privacy-description">Essential browser storage remembers your theme. Optional analytics and advertising are currently off. Choose whether to allow optional cookies if these are added later.</p><a href="./privacy/">Read our privacy policy</a><div class="privacy-settings" id="privacy-settings" hidden><label><input type="checkbox" checked disabled> Essential preferences (always on)</label><label><input type="checkbox" id="optional-consent"> Allow optional analytics cookies in future</label><p>Choosing this does not activate analytics today. We will only load optional analytics after an appropriate service and consent setup are implemented.</p></div></div>
+    <div class="privacy-banner-actions"><button type="button" class="privacy-button privacy-secondary" id="privacy-reject">Reject optional</button><button type="button" class="privacy-button privacy-secondary" id="privacy-settings-button" aria-expanded="false">Settings</button><button type="button" class="privacy-button privacy-primary" id="privacy-accept">Accept optional</button><button type="button" class="privacy-button privacy-primary" id="privacy-save" hidden>Save choices</button></div>
+  </aside>
+  <div class="offline-notice" id="offline-notice" role="status" aria-live="polite" hidden>You’re offline. Cached pages may still be available; enquiry emails need a connection to send.</div>
+  <button class="privacy-reopen" id="privacy-reopen" type="button" hidden>Privacy choices</button>
+
 </body>
 </html>
