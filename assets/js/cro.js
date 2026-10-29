@@ -49,11 +49,14 @@
   const result = form.querySelector('#form-result');
   let current = 1;
 
-  function showStep(n) {
+  function showStep(n, moveFocus = false) {
     current = n;
     steps.forEach(el => { el.hidden = Number(el.dataset.step) !== n; });
     fill.style.width = `${(n / steps.length) * 100}%`;
+    form.querySelector('.progress')?.setAttribute('aria-valuenow', String(n));
     stepLabel.textContent = `STEP ${n} OF ${steps.length}`;
+    const legend = steps.find(el => Number(el.dataset.step) === n)?.querySelector('legend');
+    if (moveFocus && legend) { legend.tabIndex = -1; legend.focus({ preventScroll: true }); }
     back.hidden = n === 1;
     next.hidden = n === steps.length;
     submit.hidden = n !== steps.length;
@@ -67,7 +70,7 @@
     const goal = button.dataset.selectGoal;
     const radio = [...form.querySelectorAll('input[name="goal"]')].find(input => input.value === goal);
     if (radio) radio.checked = true;
-    showStep(1);
+    showStep(1, true);
     document.querySelector('#discovery').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   }));
 
@@ -90,9 +93,9 @@
         } catch { showError('Enter a valid website URL, or leave it blank.'); return; }
       }
     }
-    showStep(Math.min(steps.length, current + 1));
+    showStep(Math.min(steps.length, current + 1), true);
   });
-  back.addEventListener('click', () => showStep(Math.max(1, current - 1)));
+  back.addEventListener('click', () => showStep(Math.max(1, current - 1), true));
 
   form.addEventListener('submit', event => {
     event.preventDefault();
@@ -107,9 +110,30 @@
       name: name.value.trim(),
       email: email.value.trim()
     };
+    const subject = 'Discovery call request — Startup Intelligence';
+    const body = [
+      'Hello Startup Intelligence,',
+      '',
+      'I would like to request a discovery call. Please contact me to arrange a suitable time.',
+      '',
+      `Name: ${data.name}`,
+      `Email: ${data.email}`,
+      `Primary goal: ${data.goal}`,
+      `Website: ${data.website}`,
+      `Indicative budget: ${data.budget}`,
+      '',
+      'I understand this email does not book a calendar slot; the time will be confirmed separately.'
+    ].join(String.fromCharCode(10));
+    const emailLink = document.createElement('a');
+    emailLink.href = `mailto:startupintelligence1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    emailLink.textContent = 'Open email draft';
+    result.replaceChildren();
+    const message = document.createElement('p');
+    message.textContent = `Your email draft is ready, ${data.name}. Review it and choose Send in your email app. This does not reserve a time, and this website has not sent or stored your details.`;
+    result.append(message, emailLink);
     result.hidden = false;
-    result.textContent = `Your brief is ready, ${data.name}. This preview currently has no secure form endpoint, so nothing has been sent or stored. Connect a server-side submission service before launch. Summary: ${data.goal}; website: ${data.website}; budget: ${data.budget}; contact: ${data.email}.`;
-    result.focus?.();
+    result.tabIndex = -1;
+    result.focus();
   });
   showStep(1);
 })();
