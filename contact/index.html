@@ -57,6 +57,11 @@
     @media (min-width:761px) { .menu-toggle { display:none; } }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; } }
   </style>
+
+<style>
+  :root[data-theme="light"] .actions .button.primary { color: #ffffff !important; }
+  :root[data-theme="light"] .actions .button.secondary { color: var(--ink, #122033) !important; }
+</style>
 </head>
 <body>
 <header><div class="wrap nav"><a class="brand" href="../"><img class="brand-logo" src="../assets/icons/favicon.svg" alt="" width="38" height="38"> STARTUP <span>INTELLIGENCE</span></a><nav class="links" id="site-navigation" aria-label="Main navigation"><a href="../">Home</a><a href="../about/">About</a><a href="../explore/">Explore</a><a href="../research/">Research</a><a href="../contact/">Contact</a><a href="../login/">Login</a></nav>
