@@ -1,0 +1,21 @@
+/* Lightweight local SVG visual assets. No external image requests or JS dependencies. */
+.visual-feature,.visual-gallery{width:min(calc(100% - 40px),1120px);margin:0 auto 56px}
+.visual-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(22px,4vw,52px);align-items:center;padding:clamp(18px,3vw,30px);border:1px solid var(--line,#d8d9d1);border-radius:18px;background:var(--paper,#fff);overflow:hidden}
+.visual-feature img{display:block;width:100%;height:auto;aspect-ratio:12/7;object-fit:contain;border-radius:12px}
+.visual-feature-copy .eyebrow{margin:0 0 10px}
+.visual-feature-copy h2{margin:0 0 12px;font-size:clamp(24px,3vw,38px);line-height:1.08;letter-spacing:-.055em}
+.visual-feature-copy p{margin:0;color:var(--muted,#64675f);max-width:52ch}
+.visual-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.visual-card{min-width:0;overflow:hidden;border:1px solid var(--line,#d8d9d1);border-radius:14px;background:var(--paper,#fff)}
+.visual-card img{display:block;width:100%;height:auto;aspect-ratio:12/7;object-fit:cover;background:#0b1521}
+.visual-card-copy{padding:18px}
+.visual-card-copy h2,.visual-card-copy h3{font-size:18px;line-height:1.2;letter-spacing:-.035em;margin:0 0 8px}
+.visual-card-copy p{font-size:13px;line-height:1.6;color:var(--muted,#64675f);margin:0}
+.visual-disclaimer{font-size:12px;color:var(--muted,#64675f);margin:12px 0 0}
+.hero-art-visual{display:flex;flex-direction:column;justify-content:space-between;min-height:390px}
+.hero-art-visual .hero-visual-image{display:block;width:100%;height:auto;max-height:310px;object-fit:contain;margin:8px auto}
+.hero-art-visual .art-caption{margin-top:8px}
+.service-visual{display:block;width:100%;height:auto;aspect-ratio:12/7;object-fit:cover;border-radius:10px;margin:18px 0 2px;background:#0b1521}
+@media(max-width:760px){.visual-feature{grid-template-columns:1fr;gap:18px}.visual-feature img{max-height:280px}.visual-gallery{grid-template-columns:1fr 1fr}.visual-card-copy{padding:14px}.hero-art-visual{min-height:320px}}
+@media(max-width:480px){.visual-gallery{grid-template-columns:1fr}.visual-card-copy{padding:16px}}
+@media(prefers-reduced-motion:reduce){.visual-feature,.visual-card{scroll-behavior:auto}}
