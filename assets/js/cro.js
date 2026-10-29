@@ -1,4 +1,25 @@
 (() => {
+  const selector = document.querySelector('#theme-select');
+  if (!selector) return;
+  const allowed = new Set(['light', 'dark', 'midnight', 'forest']);
+  const root = document.documentElement;
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  const colors = { light: '#f5f5f0', dark: '#080e16', midnight: '#111318', forest: '#f5efe3' };
+  let saved = '';
+  try { saved = localStorage.getItem('si-theme') || ''; } catch {}
+  const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  function applyTheme(theme, save = false) {
+    if (!allowed.has(theme)) theme = 'light';
+    root.dataset.theme = theme;
+    selector.value = theme;
+    if (metaThemeColor) metaThemeColor.setAttribute('content', colors[theme]);
+    if (save) { try { localStorage.setItem('si-theme', theme); } catch {} }
+  }
+  applyTheme(allowed.has(saved) ? saved : (systemDark ? 'dark' : 'light'));
+  selector.addEventListener('change', () => applyTheme(selector.value, true));
+})();
+
+(() => {
   const menuButton = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('#mobile-nav');
   if (menuButton && mobileNav) {
