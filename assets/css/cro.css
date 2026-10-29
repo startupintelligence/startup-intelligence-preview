@@ -47,3 +47,29 @@ html,body,.header,.service-card,.wizard,.budget-box,.standards,.budget-band,.clo
 .button-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 @media(max-width:520px){.theme-control select{max-width:94px;padding-inline:7px;font-size:11px}.header{gap:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}html,body,.header,.service-card,.wizard,.budget-box,.standards,.budget-band,.closing,.footer{transition:none!important}}
+
+
+/* Responsive polish: comfortable controls, quieter hover states and small-screen overflow protection. */
+.header-cta{white-space:nowrap}
+.service-card{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.service-card:hover{transform:translateY(-3px);border-color:var(--art-line-strong);box-shadow:0 14px 34px #101b2910}
+.service-visual{transition:transform .35s ease}
+.service-card:hover .service-visual{transform:scale(1.012)}
+button:focus-visible,.theme-control select:focus-visible,.wizard input:focus-visible,.wizard select:focus-visible,.budget-box input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(max-width:380px){
+  .header{flex-wrap:wrap}
+  .brand{margin-right:auto}
+  .header-cta{order:4;width:100%;min-height:40px}
+  .theme-control{margin-left:auto}
+  .menu-toggle{min-height:40px}
+  .hero-art-visual{padding:14px}
+}
+@media(hover:none){
+  .service-card:hover{transform:none;box-shadow:none}
+  .service-card:hover .service-visual{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .service-card,.service-visual{transition:none!important}
+  .service-card:hover{transform:none;box-shadow:none}
+  .service-card:hover .service-visual{transform:none}
+}
