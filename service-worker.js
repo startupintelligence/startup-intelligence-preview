@@ -1,5 +1,5 @@
 /* Limited offline support for the GitHub Pages preview. */
-const CACHE_NAME = 'si-preview-shell-v2';
+const CACHE_NAME = 'si-preview-shell-v3';
 const BASE = new URL('./', self.location.href);
 const CORE_ASSETS = [
   './','./index.html','./assets/css/cro.css','./assets/css/animated-background.css',
