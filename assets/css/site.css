@@ -188,7 +188,7 @@ html{scroll-padding-top:82px}body{background:radial-gradient(ellipse at 82% 7%,r
 
 
 /* Cadrift Sans — internal QA 0.7, self-hosted. Display use only pending final font QA/licence. */
-@font-face{font-family:"Cadrift Sans";src:url("./fonts/CadriftSans-0.7-QA.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Cadrift Sans";src:url("../fonts/CadriftSans-0.7-QA.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
 :root{--font-display:"Cadrift Sans",ui-monospace,monospace;--font-body:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
 body{font-family:var(--font-body)}
 h1,h2,.brand-name,.display-type{font-family:var(--font-display),var(--font-body);font-weight:400;letter-spacing:-.035em}

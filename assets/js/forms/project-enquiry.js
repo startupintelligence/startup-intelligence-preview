@@ -66,7 +66,7 @@
 
   form.addEventListener("submit", async event => {
     event.preventDefault();
-    if (!validateStep() || !form.reportValidity()) return;
+    if (!validateStep()) return;
     const payload = makePayload();
     if (!payload.consent) {
       status.textContent = "Please confirm that we may contact you about this enquiry.";
