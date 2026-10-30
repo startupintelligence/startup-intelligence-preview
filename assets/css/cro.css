@@ -153,3 +153,8 @@ body{min-width:320px;overflow-x:clip}
  html{scroll-behavior:auto}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* Self-hosted Cadrift Sans for the homepage as well as inner pages. */
+@font-face{font-family:"Cadrift Sans";src:url("../fonts/CadriftSans-0.7-QA.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+body{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+h1,h2,.brand{font-family:"Cadrift Sans",ui-sans-serif,system-ui,sans-serif;font-weight:400;letter-spacing:-.025em}
