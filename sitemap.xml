@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Production sitemap template. Preview pages are noindex and are intentionally excluded. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://startupintelligence.github.io/startup-intelligence-preview/</loc><lastmod>2026-10-30</lastmod></url>
-<url><loc>https://startupintelligence.github.io/startup-intelligence-preview/explore/</loc><lastmod>2026-10-30</lastmod></url>
-<url><loc>https://startupintelligence.github.io/startup-intelligence-preview/custom/</loc><lastmod>2026-10-30</lastmod></url>
-<url><loc>https://startupintelligence.github.io/startup-intelligence-preview/plans/</loc><lastmod>2026-10-30</lastmod></url>
-<url><loc>https://startupintelligence.github.io/startup-intelligence-preview/portfolio/</loc><lastmod>2026-10-30</lastmod></url>
-<url><loc>https://startupintelligence.github.io/startup-intelligence-preview/about/</loc><lastmod>2026-10-30</lastmod></url>
-<url><loc>https://startupintelligence.github.io/startup-intelligence-preview/contact/</loc><lastmod>2026-10-30</lastmod></url>
-<url><loc>https://startupintelligence.github.io/startup-intelligence-preview/privacy/</loc><lastmod>2026-10-30</lastmod></url>
-<url><loc>https://startupintelligence.github.io/startup-intelligence-preview/terms/</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://startupintelligence.github.io/startup-intelligence/</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://startupintelligence.github.io/startup-intelligence/explore/</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://startupintelligence.github.io/startup-intelligence/custom/</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://startupintelligence.github.io/startup-intelligence/plans/</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://startupintelligence.github.io/startup-intelligence/portfolio/</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://startupintelligence.github.io/startup-intelligence/about/</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://startupintelligence.github.io/startup-intelligence/contact/</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://startupintelligence.github.io/startup-intelligence/privacy/</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://startupintelligence.github.io/startup-intelligence/terms/</loc><lastmod>2026-10-30</lastmod></url>
 </urlset>

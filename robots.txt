@@ -1,4 +1,5 @@
-# Preview environment: crawlable for QA, but all pages carry noindex.
+# Preview environment: all HTML pages use noindex,follow.
+# Do not submit this preview robots.txt or sitemap to search engines.
 User-agent: *
 Allow: /
 User-agent: OAI-SearchBot
@@ -13,4 +14,3 @@ User-agent: Claude-User
 Allow: /
 User-agent: Applebot
 Allow: /
-Sitemap: https://startupintelligence.github.io/startup-intelligence-preview/sitemap.xml
