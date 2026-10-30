@@ -148,3 +148,40 @@ html{scroll-padding-top:82px}body{background:radial-gradient(ellipse at 82% 7%,r
 .contact-aside li{padding:5px 0}
 .contact-aside hr{border:0;border-top:1px solid var(--line);margin:24px 0}
 @media(max-width:760px){.contact-layout{grid-template-columns:1fr}.contact-form{padding:20px}}
+
+
+/* Shared page polish: restrained motion, clear pricing and portfolio hierarchy. */
+:root{scroll-behavior:smooth}
+.page-hero{position:relative;isolation:isolate}
+.page-hero .wrap{position:relative}
+.page-hero .breadcrumbs{margin-bottom:28px}
+.page-hero .lede{max-width:720px;line-height:1.8}
+.page-hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.minimum-budget{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:clamp(24px,4vw,42px);border:1px solid color-mix(in srgb,var(--cyan) 35%,var(--line));border-radius:13px;background:radial-gradient(ellipse at 100% 0%,rgba(74,157,255,.16),transparent 48%),linear-gradient(120deg,var(--panel),color-mix(in srgb,var(--panel-2) 65%,var(--panel)))}
+.minimum-budget h2{font-size:clamp(1.8rem,3.2vw,2.7rem);letter-spacing:-.06em;margin:0 0 10px}
+.minimum-budget p:not(.eyebrow){max-width:550px;color:var(--muted);margin:0}
+.minimum-amount{display:flex;flex-direction:column;align-items:flex-start;padding-left:clamp(12px,3vw,34px);border-left:1px solid var(--line)}
+.minimum-amount span,.minimum-amount small{color:var(--muted);font-size:.8rem}
+.minimum-amount strong{font-size:clamp(2.5rem,5vw,4rem);line-height:1.1;letter-spacing:-.075em;color:var(--cyan)}
+.plan-card{display:flex;flex-direction:column;align-items:flex-start;min-height:100%}
+.plan-card .button{margin-top:auto}
+.plan-card .plan-price{font-size:1.05rem;font-weight:750;color:var(--cyan)}
+.plan-card.featured{border-color:color-mix(in srgb,var(--cyan) 50%,var(--line));box-shadow:0 18px 55px rgba(0,0,0,.14)}
+.visual-gallery .visual-card{transition:transform .28s ease,border-color .28s ease}
+.visual-gallery .visual-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--cyan) 45%,var(--line))}
+.portfolio-note{max-width:780px}
+.button:focus-visible,.nav-links a:focus-visible,.footer-nav a:focus-visible,.faq-list summary:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+@media(max-width:760px){
+ .minimum-budget{grid-template-columns:1fr;gap:20px}
+ .minimum-amount{border-left:0;border-top:1px solid var(--line);padding:18px 0 0}
+ .page-hero .actions{align-items:stretch;flex-direction:column}
+ .page-hero .actions .button{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+ .visual-gallery .visual-card,.plan-card,.button{transition:none!important}
+ .visual-gallery .visual-card:hover,.button:hover{transform:none}
+}
+
+.motion-ready [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .55s ease var(--reveal-delay,0ms),transform .55s cubic-bezier(.2,.8,.2,1) var(--reveal-delay,0ms)}
+.motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.motion-ready [data-reveal]{opacity:1;transform:none;transition:none}}

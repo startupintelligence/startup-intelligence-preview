@@ -46,4 +46,24 @@
   search?.addEventListener('input', renderCatalog); category?.addEventListener('change', renderCatalog); sort?.addEventListener('change', renderCatalog);
   document.querySelectorAll('[data-category-filter]').forEach(button => button.addEventListener('click', () => { activeCategory = button.dataset.categoryFilter; if (category) category.value = activeCategory; document.querySelectorAll('[data-category-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === button))); renderCatalog(); }));
   if (cards.length) renderCatalog();
+
+  // Small, progressive section reveals. Content remains visible if JS or observer is unavailable.
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const revealTargets = document.querySelectorAll('main > .page-hero .wrap, main > .section, main > .section-tight, main > .visual-feature, main > .visual-gallery, main > section .band');
+    revealTargets.forEach((element, index) => {
+      element.dataset.reveal = '';
+      element.style.setProperty('--reveal-delay', `${Math.min(index % 3, 2) * 65}ms`);
+    });
+    document.documentElement.classList.add('motion-ready');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealTargets.forEach(element => observer.observe(element));
+  }
 })();
