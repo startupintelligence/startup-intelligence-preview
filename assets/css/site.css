@@ -133,3 +133,18 @@ html{scroll-padding-top:82px}body{background:radial-gradient(ellipse at 82% 7%,r
 @media(max-width:900px){.nav{gap:14px}.nav-links{gap:12px}.hero-grid{gap:34px}.hero-art{min-height:360px}.section-head{align-items:start}}
 @media(max-width:760px){.nav{min-height:68px}.nav-links{background:var(--panel);border-color:var(--line)}.nav-actions{margin-left:auto}.hero{padding-top:68px}.hero::before{inset:20% 0 0 0;opacity:.14}.hero-grid{gap:38px}.hero h1{font-size:clamp(3.15rem,13vw,5rem)}.hero-art{min-height:330px;padding:18px}.trust-items{padding-block:18px;display:grid;grid-template-columns:1fr 1fr}.trust-items span{font-size:.74rem}.section-head{margin-bottom:26px}.three-d-stage{min-height:350px}.band{gap:20px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Contact page layout */
+.contact-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:22px;align-items:start}
+.contact-form{display:grid;gap:12px;padding:26px}
+.contact-form label{font-size:.88rem;font-weight:700;color:var(--ink);margin-top:5px}
+.contact-form .field{border-radius:9px}
+.contact-form textarea{resize:vertical;min-height:140px}
+.contact-form .button{justify-self:start;margin-top:8px}
+.contact-aside{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
+.contact-aside h3{margin:8px 0;font-size:1.2rem}
+.contact-aside p,.contact-aside li{color:var(--muted);font-size:.93rem}
+.contact-aside ol{padding-left:20px}
+.contact-aside li{padding:5px 0}
+.contact-aside hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+@media(max-width:760px){.contact-layout{grid-template-columns:1fr}.contact-form{padding:20px}}
