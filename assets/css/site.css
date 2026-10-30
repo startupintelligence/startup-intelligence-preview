@@ -185,3 +185,31 @@ html{scroll-padding-top:82px}body{background:radial-gradient(ellipse at 82% 7%,r
 .motion-ready [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .55s ease var(--reveal-delay,0ms),transform .55s cubic-bezier(.2,.8,.2,1) var(--reveal-delay,0ms)}
 .motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){.motion-ready [data-reveal]{opacity:1;transform:none;transition:none}}
+
+
+/* Cadrift Sans — internal QA 0.7, self-hosted. Display use only pending final font QA/licence. */
+@font-face{font-family:"Cadrift Sans";src:url("./fonts/CadriftSans-0.7-QA.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+:root{--font-display:"Cadrift Sans",ui-monospace,monospace;--font-body:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+body{font-family:var(--font-body)}
+h1,h2,.brand-name,.display-type{font-family:var(--font-display),var(--font-body);font-weight:400;letter-spacing:-.035em}
+.hero h1,.page-hero h1{line-height:1.12;letter-spacing:-.025em}
+h2{line-height:1.2}
+.project-wizard{gap:15px}
+.wizard-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.wizard-count,.optional-label{font-size:.78rem;color:var(--muted)}
+.wizard-progress{display:grid;grid-template-columns:32px 1fr 32px 1fr 32px;align-items:center;gap:8px;margin:0 0 12px}
+.wizard-progress span{display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;font-size:.75rem;color:var(--muted)}
+.wizard-progress span.is-current,.wizard-progress span.is-complete{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.wizard-progress i{height:1px;background:var(--line)}
+.project-wizard [data-wizard-step] h3{font-size:clamp(1.35rem,3vw,1.8rem);margin:0 0 8px}
+.wizard-help{margin:0 0 10px;color:var(--muted);font-size:.9rem}
+.project-wizard label:not(.consent-row){display:block;margin:14px 0 6px;font-size:.88rem;font-weight:700}
+.project-wizard .field{width:100%;min-height:48px;padding:12px 14px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink)}
+.project-wizard textarea.field{min-height:130px;resize:vertical}
+.wizard-actions{display:flex;align-items:center;gap:10px;margin-top:6px}
+.wizard-spacer{flex:1}
+.consent-row{display:flex;align-items:flex-start;gap:10px;margin-top:20px;font-size:.86rem;color:var(--muted)}
+.consent-row input{width:18px;height:18px;flex:0 0 auto;margin-top:2px;accent-color:var(--cyan)}
+.consent-row a{text-decoration:underline;text-underline-offset:3px}
+.honeypot{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:520px){.wizard-actions{flex-wrap:wrap}.wizard-actions .button{flex:1}.wizard-top{align-items:flex-start;flex-direction:column;gap:4px}}
