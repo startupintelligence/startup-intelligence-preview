@@ -159,3 +159,26 @@ body{min-width:320px;overflow-x:clip}
 body{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .brand{font-family:"Cadrift Sans",ui-sans-serif,system-ui,sans-serif;font-weight:400;letter-spacing:-.025em}
 h1,h2{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:650;letter-spacing:-.055em}
+
+
+/* Final mobile header overrides: prevent duplicate CTA labels and horizontal clipping. */
+@media(max-width:520px){
+  .header{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:space-between!important;gap:7px!important;padding:12px 14px!important;min-height:68px!important;min-width:0!important;overflow:visible}
+  .header .brand{flex:0 1 auto!important;min-width:0!important;margin:0!important;font-size:clamp(9px,2.6vw,11px)!important;white-space:nowrap!important}
+  .header .theme-control{flex:0 0 auto!important;margin:0!important}
+  .header .theme-control select{width:72px!important;max-width:72px!important;min-height:40px!important;padding:6px 16px 6px 6px!important;font-size:10px!important}
+  .header .header-cta{display:inline-flex!important;flex:0 1 86px!important;width:auto!important;max-width:86px!important;min-width:0!important;margin:0!important;padding:7px!important;min-height:40px!important;gap:3px!important;white-space:normal!important;font-size:9px!important;line-height:1.15!important}
+  .header .header-cta .cta-label-full{display:none!important}
+  .header .header-cta .cta-label-mobile{display:inline!important}
+  .header .menu-toggle{display:inline-flex!important;flex:0 0 auto!important;min-width:42px!important;min-height:40px!important;margin:0!important;padding:7px!important;white-space:nowrap!important}
+}
+@media(max-width:380px){
+  .header{gap:8px!important;padding-inline:12px!important}
+  .header .brand{font-size:9px!important}
+  .header .header-cta{display:none!important}
+  .header .menu-toggle{margin-left:auto!important}
+}
+@media(min-width:381px) and (max-width:430px){
+  .header .header-cta{flex-basis:78px!important;max-width:78px!important;font-size:8px!important}
+  .header .theme-control select{width:68px!important;max-width:68px!important}
+}
