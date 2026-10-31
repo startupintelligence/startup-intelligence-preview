@@ -35,4 +35,4 @@
 - Instagram: https://www.instagram.com/startupintelligence1/
 
 ## Preview notice
-This is a preview website. Pages use noindex directives and should not be treated as the canonical public production site. Production canonical URLs and indexing directives must be switched during production release.
+This deployment is a private preview for review. Public-facing pages are being prepared for production; do not treat this preview URL as the canonical business website. Production canonical URLs and indexing directives must be switched during production release.

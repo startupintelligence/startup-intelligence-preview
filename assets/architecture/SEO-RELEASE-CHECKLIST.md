@@ -9,8 +9,8 @@ Target: a complete service-agency website of approximately 11 core pages plus 2 
 | Priority | Page | Purpose / scope | Current route or plan |
 |---|---|---|---|
 | Core | Home | Primary website-development positioning, service overview, proof, process, FAQs and enquiry CTA | `/` — existing |
-| Core | Services overview | Clear service menu and routing to specialist pages | `/explore/` — evolve into Services |
-| Core | Website Design & Development | Primary offer: business websites, custom builds, responsive UX, web applications assessed separately | `/custom/` — evolve and retain |
+| Core | Services overview | Clear service menu and routing to specialist pages | `/services/` — preview page created |
+| Core | Website Design & Development | Primary offer: business websites, custom builds, responsive UX, web applications assessed separately | `/website-development/` — preview page created |
 | Core | SEO & Digital Growth | Technical SEO, content structure, search experience and growth optimization | New `/seo-growth/` |
 | Core | Paid Advertising | Meta Ads and Google Ads, campaign setup/management, tracking, client-paid media budgets | New `/advertising/` |
 | Core | Portfolio / Concept Work | Clearly labelled concept projects; no invented client outcomes | `/portfolio/` — existing |
@@ -118,9 +118,9 @@ Use role/responsibility descriptions rather than named personal profiles or head
 
 
 ## Roadmap and delivery gates
-- [ ] Convert `/explore/` into a clear Services overview and update navigation labels.
+- [x] Create `/services/` as the Services overview; retain `/explore/` for website types and update navigation labels.
 - [ ] Build `/seo-growth/` and `/advertising/` as substantive service pages with distinct scope and FAQs.
-- [ ] Expand `/custom/` as the primary Website Design & Development page.
+- [x] Create `/website-development/` as the primary Website Design & Development page; review the legacy `/custom/` route before redirecting or repurposing it.
 - [ ] Expand `/about/` with the approved role-based team presentation; do not invent names, portraits or credentials.
 - [ ] Build `/process/` and `/faqs/`; retain concise contextual FAQs on relevant pages.
 - [ ] Update header, footer, internal links, breadcrumbs and mobile navigation for the approved page structure.
