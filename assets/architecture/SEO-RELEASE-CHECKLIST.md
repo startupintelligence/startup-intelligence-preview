@@ -83,3 +83,40 @@ This repository is the preview deployment. Keep every preview page set to `noind
 - Public portfolio visuals are concepts, not verified client case studies.
 - Current minimum project budget is ₹5,000; it is a starting threshold, not a fixed package quote.
 - Lighthouse and full interactive browser tests remain release gates, not completed claims.
+
+
+## Service-agency website roadmap (approved for preview)
+
+### Target page architecture
+- [ ] Home — positioning, service pathways, proof, process, FAQs and primary enquiry CTA
+- [ ] Services — overview and routes to specialist services
+- [ ] Website Design & Development — scope, deliverables, technology approach and limitations
+- [ ] SEO & Digital Growth — technical SEO, optimization and growth scope
+- [ ] Advertising Management — Meta Ads and Google Ads, fees versus media spend, measurement and reporting scope
+- [ ] Portfolio / Our Work — label concepts clearly; publish client work only with permission and evidence
+- [ ] About & Team — seven-member team presented by roles; names/photos only with approval
+- [ ] Contact / Get a Quote — goals, service interest, budget (₹5,000 minimum starting threshold), timeline and contact details
+- [ ] Plans & Pricing — indicative scope, custom quotes and explicit exclusions
+- [ ] Our Process — discovery, written scope, delivery, review and handover
+- [ ] FAQs — shared and service-specific answers; visible content must match FAQ structured data
+- [ ] Privacy Policy and Terms — verify against actual operations
+
+### Approved claims and content rules
+- Team presentation is role-based. Do not invent member names, credentials, client outcomes or testimonials.
+- State seven members only while that remains accurate and approved.
+- Meta Ads and Google Ads management are offered; proposals specify platforms, deliverables, optimization cadence and reporting frequency.
+- Service fees are separate from platform media spend; clients pay platforms directly through their own accounts.
+- Never guarantee leads, sales, return on ad spend, rankings or fixed campaign outcomes.
+- Website timelines are estimates after scope review; 3–5 weeks is only indicative for straightforward business sites.
+- Ownership, source files, credentials and third-party licences follow the written proposal and applicable licences.
+- Current enquiry flow prepares an email draft; it is not automatic booking or backend submission.
+
+### Implementation sequence
+- [ ] Map existing routes to this architecture before creating new URLs.
+- [ ] Improve Services navigation and add specialist pages for web development, SEO/growth and advertising management.
+- [ ] Expand About into role-based team presentation without fabricated identities.
+- [ ] Add a distinct Process page and cross-link relevant service pages and FAQs.
+- [ ] Update internal links, metadata, canonical plan and sitemap template for every approved route.
+- [ ] Update `llms.txt` and Organization/FAQ structured data to match visible, verified facts.
+- [ ] Keep preview pages `noindex,follow`; do not change production files or release settings.
+- [ ] Run link, responsive, accessibility, performance, form and structured-data validation after implementation.
