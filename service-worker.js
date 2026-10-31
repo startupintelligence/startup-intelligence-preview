@@ -1,9 +1,9 @@
 /* Limited offline support for the GitHub Pages preview. */
-const CACHE_NAME = 'si-preview-shell-v3';
+const CACHE_NAME = 'si-preview-shell-v4';
 const BASE = new URL('./', self.location.href);
 const CORE_ASSETS = [
   './','./index.html','./assets/css/cro.css','./assets/css/animated-background.css',
-  './assets/css/section-motion.css','./assets/css/privacy-banner.css','./assets/js/cro.js',
+  './assets/css/section-motion.css','./assets/css/privacy-banner.css','./assets/js/cro.js','./assets/js/site.js','./assets/js/config.js','./assets/js/forms/project-enquiry.js',
   './assets/js/animated-background.js','./assets/js/section-motion.js','./assets/js/site-enhancements.js',
   './assets/icons/favicon.svg','./assets/css/visual-assets.css','./assets/images/hero-orbit.svg','./assets/images/web-experience.svg','./assets/images/growth-analytics.svg','./assets/images/strategy-system.svg','./privacy/'
 ].map(path => new URL(path, BASE).href);
