@@ -1,0 +1,38 @@
+# Startup Intelligence
+
+> Startup Intelligence is an independent digital services initiative focused primarily on custom website design and development, with SEO and digital growth support plus separately scoped Meta Ads and Google Ads services.
+
+## Pages
+- Home: https://startupintelligence.github.io/startup-intelligence-preview/
+- Services: https://startupintelligence.github.io/startup-intelligence-preview/custom/
+- Website types: https://startupintelligence.github.io/startup-intelligence-preview/explore/
+- Plans and minimum project budget: https://startupintelligence.github.io/startup-intelligence-preview/plans/
+- Work and concept visuals: https://startupintelligence.github.io/startup-intelligence-preview/portfolio/
+- About: https://startupintelligence.github.io/startup-intelligence-preview/about/
+- Contact: https://startupintelligence.github.io/startup-intelligence-preview/contact/
+- Privacy: https://startupintelligence.github.io/startup-intelligence-preview/privacy/
+- Terms: https://startupintelligence.github.io/startup-intelligence-preview/terms/
+
+## Services
+- Custom website planning and development
+- Responsive interface and UX implementation
+- Technical SEO foundations and content structure
+- Separately scoped Meta Ads and Google Ads campaign setup and management
+- Performance and accessibility considerations
+- Web application, backend, AI and automation requirements assessed as separate scopes
+
+- Website design and development are the primary service. Paid advertising is an additional service; platform media spend is paid directly by the client and is separate from the service fee.
+
+## Important facts
+- Current minimum website project budget discussed: INR 5,000. This is a starting threshold, not a fixed package price.
+- Final scope, exclusions, delivery milestones and commercial terms are confirmed in a written proposal.
+- The public portfolio currently contains conceptual visuals, not verified client case studies.
+- The enquiry form currently prepares an email draft. It does not submit data to a backend or reserve a meeting.
+- Startup Intelligence is described as an independent initiative and is not represented as a registered company on this preview website.
+
+## Contact
+- Email: startupintelligence1@gmail.com
+- Instagram: https://www.instagram.com/startupintelligence1/
+
+## Preview notice
+This is a preview website. Pages use noindex directives and should not be treated as the canonical public production site. Production canonical URLs and indexing directives must be switched during production release.
