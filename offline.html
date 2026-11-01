@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#080e16">
+  <title>You're offline | Startup Intelligence</title>
+  <meta name="description" content="This page is not available without an internet connection.">
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/taste.css">
+  <style>
+    :root{color-scheme:dark;--offline-bg:#080e16;--offline-panel:#101b29;--offline-ink:#f1f6fc;--offline-muted:#a8bacd;--offline-line:#30445a;--offline-cyan:#25d5f2}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--offline-bg);color:var(--offline-ink);font:16px/1.7 system-ui,sans-serif}
+    main{width:min(100%,680px);padding:clamp(28px,6vw,56px);border:1px solid var(--offline-line);background:var(--offline-panel)}
+    .eyebrow{color:var(--offline-cyan);font-size:.78rem;font-weight:700;letter-spacing:.14em}
+    h1{margin:12px 0;font-size:clamp(2.4rem,8vw,4.5rem);line-height:1.02;letter-spacing:-.055em}
+    p{max-width:48ch;color:var(--offline-muted)}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    a{display:inline-flex;align-items:center;min-height:48px;padding:11px 18px;border:1px solid var(--offline-line);color:var(--offline-ink);text-decoration:none;font-weight:700}
+    a.primary{background:var(--offline-cyan);border-color:var(--offline-cyan);color:#07121b}
+    a:focus-visible{outline:3px solid var(--offline-cyan);outline-offset:4px}
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">CONNECTION INTERRUPTED</p>
+    <h1>You're offline.</h1>
+    <p>This page isn't saved on this device yet. Reconnect to the internet and try again. Pages and assets you've already visited may still be available.</p>
+    <div class="actions">
+      <a class="primary" href="./">Return to homepage</a>
+      <a href="./contact/">Contact page</a>
+    </div>
+  </main>
+</body>
+</html>
