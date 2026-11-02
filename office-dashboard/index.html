@@ -44,6 +44,9 @@
     @media(max-width:1050px){.shell{grid-template-columns:210px minmax(0,1fr)}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid{grid-template-columns:1fr}}
     @media(max-width:700px){.shell{display:block}.sidebar{padding:14px 18px;border-right:0;border-bottom:1px solid var(--line);gap:13px}.sidebar .nav-label,.sidebar-foot{display:none}.nav{display:flex;overflow-x:auto;padding-bottom:2px}.nav a{white-space:nowrap;padding:8px 10px;font-size:.78rem}.brand img{width:30px;height:30px}.preview-tag{font-size:.72rem}.topbar{min-height:58px;padding:12px 18px}.content{padding:25px 18px}.heading{align-items:flex-start;flex-direction:column}.metrics{gap:8px}.metric{padding:13px}.metric-value{font-size:1.55rem}.actions{grid-template-columns:1fr}.action{min-height:60px;flex-direction:row;align-items:center}.filters select{flex:1;min-width:0}.footer{padding:18px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+  
+    .state-lab{margin-top:28px}.state-picker{display:flex;flex-wrap:wrap;gap:8px;padding:18px;border-bottom:1px solid var(--line)}.state-picker button{background:var(--panel2);color:var(--ink);border:1px solid var(--line);padding:9px 12px;cursor:pointer;font-size:.8rem}.state-picker button[aria-pressed=true]{border-color:var(--cyan);background:#25d5f214}.state-preview{padding:24px;min-height:155px;display:grid;align-content:center;gap:10px}.state-preview h3{margin:0;font-size:1.05rem}.state-preview p{margin:0;color:var(--muted);max-width:68ch}.state-preview .state-action{justify-self:start;margin-top:4px;padding:9px 13px;background:var(--panel2);color:var(--ink);border:1px solid var(--line);cursor:pointer}.state-kicker{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);font-weight:800}.state-note{font-size:.76rem;color:var(--muted)}.state-preview:focus{outline:2px solid var(--cyan);outline-offset:3px}@media(prefers-reduced-motion:reduce){.state-preview *{transition:none!important}}
+    
   </style>
 </head>
 <body>
@@ -87,6 +90,15 @@
       <p class="section-label" id="projects">Before this becomes a real office system</p>
       <section class="panel"><div class="panel-body"><p class="muted" style="margin:0">The production dashboard still needs an authenticated backend, role-based permissions, protected data access, audit logging, secure session handling, and tested enquiry/project workflows. This prototype does not provide those protections.</p></div></section>
     </div>
+    <p class="section-label" id="interaction-states">Interaction states · design standard</p>
+    <section class="panel state-lab" aria-labelledby="state-lab-title">
+      <div class="panel-head"><div><h2 id="state-lab-title">State pattern lab</h2><p class="state-note">Choose a state to preview its message and recovery path.</p></div><span class="state-note">SIMULATED UI EXAMPLES</span></div>
+      <div class="state-picker" role="group" aria-label="Choose an interface state">
+        <button type="button" data-state="empty" aria-pressed="true">Empty</button><button type="button" data-state="loading" aria-pressed="false">Loading</button><button type="button" data-state="error" aria-pressed="false">Error</button><button type="button" data-state="offline" aria-pressed="false">Offline</button><button type="button" data-state="slow" aria-pressed="false">Slow connection</button><button type="button" data-state="search" aria-pressed="false">No results</button><button type="button" data-state="permission" aria-pressed="false">Permission</button><button type="button" data-state="session" aria-pressed="false">Session expired</button><button type="button" data-state="validation" aria-pressed="false">Validation</button><button type="button" data-state="success" aria-pressed="false">Success</button><button type="button" data-state="partial" aria-pressed="false">Partial success</button><button type="button" data-state="pending" aria-pressed="false">Sync pending</button><button type="button" data-state="conflict" aria-pressed="false">Sync conflict</button><button type="button" data-state="maintenance" aria-pressed="false">Maintenance</button>
+      </div>
+      <div class="state-preview" id="state-preview" role="status" aria-live="polite" tabindex="-1"><span class="state-kicker">Empty state</span><h3>No projects yet</h3><p>Projects will appear here when one is created or assigned to your workspace.</p><button class="state-action" type="button">Example next step: Create a project</button></div>
+      <div class="panel-body"><p class="state-note">These examples demonstrate interface copy and layout only. They do not connect to authentication, a backend, network detection, offline storage or real project data.</p></div>
+    </section>
     <footer class="footer">Startup Intelligence · Office dashboard concept · Preview only</footer>
   </main>
 </div>
@@ -105,6 +117,33 @@
     empty.style.display = visible ? "none" : "block";
   });
 })();
+  const stateCopy = {
+    empty:['Empty state','No projects yet','Projects will appear here when one is created or assigned to your workspace.','Example next step: Create a project'],
+    loading:['Loading state','Loading your projects','The page keeps the expected content shape visible while information is retrieved.','Example: Skeleton placeholders'],
+    error:['Error state','Projects could not be loaded','The request did not complete. Your saved projects have not been changed. Check your connection, then try again.','Example next step: Retry'],
+    offline:['Offline state','You are offline','Previously saved information can remain visible. Changes that need the server should wait until the connection returns.','Example next step: Review saved information'],
+    slow:['Slow connection','This is taking longer than expected','Keep the current screen available. Avoid fake percentage progress; offer a retry or a lighter view if supported.','Example next step: Load a lighter view'],
+    search:['No search results','No matching projects','Try a shorter search, check the spelling or clear a filter to broaden the results.','Example next step: Clear filters'],
+    permission:['Permission denied','You do not have access to this project','This workspace item is restricted to authorised roles. Ask an administrator for access or return to your workspace.','Example next step: Request access'],
+    session:['Session expired','Your session has expired','For a real app, save a draft before asking the user to sign in again. This prototype does not manage sessions.','Example next step: Sign in again'],
+    validation:['Form validation','Check the project name','Enter a project name before continuing. Show the message beside the exact field and preserve the other values.','Example next step: Correct the field'],
+    success:['Success state','Project saved','Your project has been saved. You can now add tasks or invite the people who will work on it.','Example next step: Add tasks'],
+    partial:['Partial success','Some changes were saved','Two updates completed and one needs attention. Keep the successful work and let the user retry only the failed item.','Example next step: Review failed item'],
+    pending:['Offline sync pending','Changes waiting to sync','Your local changes are queued. Keep them visible and explain that they are not yet saved to the server.','Example next step: Check sync status'],
+    conflict:['Sync conflict','Two versions need review','The local and server versions differ. Let the user compare them before choosing which version to keep.','Example next step: Review both versions'],
+    maintenance:['Service unavailable','Workspace maintenance','This service is temporarily unavailable. Reassure users about saved work only when that has been verified.','Example next step: Try again later']
+  };
+  const statePreview = document.getElementById('state-preview');
+  document.querySelectorAll('[data-state]').forEach(button => button.addEventListener('click', () => {
+    const item = stateCopy[button.dataset.state]; if (!item || !statePreview) return;
+    document.querySelectorAll('[data-state]').forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+    statePreview.innerHTML = '<span class="state-kicker"></span><h3></h3><p></p><button class="state-action" type="button"></button>';
+    statePreview.querySelector('.state-kicker').textContent = item[0];
+    statePreview.querySelector('h3').textContent = item[1];
+    statePreview.querySelector('p').textContent = item[2];
+    statePreview.querySelector('.state-action').textContent = item[3];
+  }));
+
 </script>
 </body>
 </html>
