@@ -238,3 +238,25 @@ p,li{overflow-wrap:break-word}.button,.nav-actions a,.theme-toggle,.menu-toggle,
 @media(min-width:1024px){.plan-grid,.standards-grid,.process-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:380px){:root{--content-gutter:15px}.brand-name{font-size:.72rem}.theme-toggle{padding-inline:7px}.wizard-progress{grid-template-columns:28px 1fr 28px 1fr 28px;gap:5px}.wizard-progress span{width:28px;height:28px}.faq-item{padding:13px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Header fit fix: keep action labels intact and collapse navigation before crowding. */
+@media (min-width: 1121px) {
+  .nav { gap: clamp(10px, 1.2vw, 16px); }
+  .brand { flex: 0 0 auto; font-size: clamp(.72rem, .78vw, .86rem); }
+  .brand-mark { flex: 0 0 36px; }
+  .nav-links { flex: 1 1 auto; min-width: 0; margin-left: 0; justify-content: flex-end; gap: clamp(8px, .85vw, 13px); }
+  .nav-links a { font-size: clamp(.68rem, .73vw, .82rem); }
+  .nav-actions { flex: 0 0 auto; gap: 8px; }
+  .nav-actions .button { flex: 0 0 auto; white-space: nowrap; padding-inline: 12px; font-size: .8rem; }
+  .theme-toggle { flex: 0 0 auto; min-width: 52px; white-space: nowrap; padding-inline: 10px; }
+}
+@media (max-width: 1120px) {
+  .nav { min-height: 70px; gap: 12px; flex-wrap: wrap; }
+  .nav-links { display: none; order: 3; width: 100%; margin: 0; padding: 6px 0 14px; align-items: stretch; flex-direction: column; gap: 0; }
+  .nav-links.is-open { display: flex; }
+  .nav-links a { padding: 12px 4px; border-top: 1px solid var(--line); font-size: .92rem; }
+  .nav-actions { margin-left: auto; flex: 0 0 auto; }
+  .nav-actions .button { white-space: nowrap; }
+  .theme-toggle { min-width: 52px; white-space: nowrap; }
+  .menu-toggle { display: inline-flex; }
+}
